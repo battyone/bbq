@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+
+development:
+  <<: *default
+  database: bbq
+
+test:
+  <<: *default
+  database: bbq_test
+
+production:
+  <<: *default
+  database: bbq_prod
