@@ -1,10 +1,17 @@
-= form_for @event do |f|
-  - if @event.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
-      %ul
-        - @event.errors.full_messages.each do |message|
-          %li= message
-
+= form_for(@event) do |f|
+  = render partial: 'partials/form_errors', locals: {model: @event}
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :address
+    = f.text_field :address, class: 'form-control'
+  .form-group
+    = f.label :datetime
+    %p= f.datetime_select :datetime, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Сохранить', class: 'btn btn-primary'
+    или #{link_to 'вернуться', :back}
