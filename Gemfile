@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'haml-rails', '~> 1.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
+gem 'devise'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'
