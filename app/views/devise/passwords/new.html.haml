@@ -1,0 +1,12 @@
+%h2 Забыли пароль?
+.row
+  .col-md-6.buffer-top
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render partial: 'partials/form_errors', locals: { model: @user }
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+      .actions
+        = f.submit 'Восстановить пароль', class: 'btn btn-primary'
+    .buffer-both
+      = render 'devise/shared/links'

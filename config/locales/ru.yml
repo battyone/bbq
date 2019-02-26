@@ -10,7 +10,7 @@ ru:
       event: Событие
     attributes:
       user:
-        email: Электронная почта
+        email: Адрес электронной почты
         name: Имя
         password: Пароль
         password_confirmation: Подтверждение пароля
