@@ -20,4 +20,4 @@
         = f.submit 'Обновить', class: 'btn btn-primary'
         или #{link_to 'вернуться', :back}
       .buffer-both
-        = link_to 'Удалить аккаунт', registration_path(resource_name), data: { confirm: 'Уверены?' }, method: :delete
+        = link_to 'Удалить аккаунт', registration_path(resource_name), data: { confirm: t('are_you_sure') }, method: :delete
