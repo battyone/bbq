@@ -1,6 +1,7 @@
 - errors = model.errors
 - if errors.any?
-  .alert.alert-danger
+  .alert.alert-danger.fadeout(data-dismiss="alert")
+    %a.close &times;
     .lead.buffer-bottom
       В вашей форме #{errors.count} ошибок
     %ul

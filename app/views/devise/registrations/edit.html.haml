@@ -1,0 +1,23 @@
+%h2 Регистрационные данные
+.row
+  .col-md-6.buffer-top
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render partial: 'partials/form_errors', locals: { model: @user }
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+      .form-group
+        = f.label :password
+        = f.password_field :password, autocomplete: 'off', class: 'form-control'
+        %em Оставьте пустым, если не меняете пароль
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+      .form-group
+        = f.label :current_password
+        = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
+      .actions
+        = f.submit 'Обновить', class: 'btn btn-primary'
+        или #{link_to 'вернуться', :back}
+      .buffer-both
+        = link_to 'Удалить аккаунт', registration_path(resource_name), data: { confirm: 'Уверены?' }, method: :delete

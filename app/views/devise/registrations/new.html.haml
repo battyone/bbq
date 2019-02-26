@@ -1,0 +1,23 @@
+%h2 Регистрация
+.row
+  .col-md-6.buffer-top
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render partial: 'partials/form_errors', locals: { model: @user }
+      .form-group
+        = f.label :name
+        = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+      .form-group
+        = f.label :password
+        %em
+          (#{@minimum_password_length} characters minimum)
+        = f.password_field :password, autocomplete: 'off', class: 'form-control'
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+      .actions
+        = f.submit 'Регистрация', class: 'btn btn-primary'
+    .buffer-both
+      = render "devise/shared/links"

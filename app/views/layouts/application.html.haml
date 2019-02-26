@@ -5,7 +5,7 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title= content_for?(:title) ? yield(:title) : "Bbq"
+    %title= content_for?(:title) ? yield(:title) : "b-b-q"
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
@@ -15,7 +15,7 @@
   %body
     .navbar.navbar-default.navbar-static-top
       .container
-        = link_to "BBQ!", root_path, class: 'navbar-brand'
+        = link_to "b-b-q", root_path, class: 'navbar-brand'
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             - if user_signed_in?
@@ -28,9 +28,13 @@
       .row
         .col-lg-9
           - flash.each do |type, msg|
-            %div(class="alert alert-#{type == 'notice' ? 'success' : type} fadeout" data-dismiss="alert")
+            - type = 'success' if type == 'notice'
+            - type = 'danger' if type == 'alert'
+            %div(class="alert alert-#{type} fadeout" data-dismiss="alert")
               %a.close &times;
               = msg
           = yield
-      %footer
-        %p © Company 2016
+      %footer.buffer-top
+        ©
+        =link_to 'mechnicov', 'https://mechnicov.github.io/cv/'
+        2019
