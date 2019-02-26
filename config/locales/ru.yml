@@ -1,0 +1,111 @@
+ru:
+  app:
+    name: b-b-q
+    author:
+      nick: mechnicov
+      cv: https://mechnicov.github.io/cv/
+  activerecord:
+    models:
+      user: Пользователь
+      event: Событие
+    attributes:
+      user:
+        email: Электронная почта
+        name: Имя
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+      event:
+        title: Название
+        address: Место проведения
+        datetime: Дата и время
+        description: Описание
+    validation:
+      error:
+        one: '%{count} ошибка'
+        few: '%{count} ошибки'
+        many: '%{count} ошибок'
+        other: ошибки
+  controllers:
+    events:
+      created: Вы создали новое мероприятие
+      updated: Вы обновили мероприятие
+      destroyed: Вы удалили мероприятие
+    users:
+      updated: Вы обновили свой профиль
+  errors:
+    messages:
+      blank: не может быть пустым
+      confirmation: не совпадает со значением поля %{attribute}
+      empty: не может быть пустым
+      invalid: имеет неверное значение
+      taken: уже существует
+      too_long:
+        one: слишком большой длины (не может быть больше чем %{count} символ)
+        few: слишком большой длины (не может быть больше чем %{count} символа)
+        many: слишком большой длины (не может быть больше чем %{count} символов)
+        other: слишком большой длины (не может быть больше чем %{count} символа)
+      too_short:
+        one: недостаточной длины (не может быть меньше %{count} символа)
+        few: недостаточной длины (не может быть меньше %{count} символов)
+        many: недостаточной длины (не может быть меньше %{count} символов)
+        other: недостаточной длины (не может быть меньше %{count} символа)
+  date:
+    abbr_day_names:
+    - Вс
+    - Пн
+    - Вт
+    - Ср
+    - Чт
+    - Пт
+    - Сб
+    abbr_month_names:
+    - 
+    - янв.
+    - февр.
+    - марта
+    - апр.
+    - мая
+    - июня
+    - июля
+    - авг.
+    - сент.
+    - окт.
+    - нояб.
+    - дек.
+    day_names:
+    - воскресенье
+    - понедельник
+    - вторник
+    - среда
+    - четверг
+    - пятница
+    - суббота
+    formats:
+      default: "%d.%m.%Y"
+      long: "%-d %B %Y"
+      short: "%-d %b"
+    month_names:
+    - 
+    - января
+    - февраля
+    - марта
+    - апреля
+    - мая
+    - июня
+    - июля
+    - августа
+    - сентября
+    - октября
+    - ноября
+    - декабря
+    order:
+    - :day
+    - :month
+    - :year
+  time:
+    am: утра
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      long: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+    pm: вечера

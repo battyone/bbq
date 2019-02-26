@@ -15,7 +15,7 @@
   %body
     .navbar.navbar-default.navbar-static-top
       .container
-        = link_to "b-b-q", root_path, class: 'navbar-brand'
+        = link_to t('app.name'), root_path, class: 'navbar-brand'
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             - if user_signed_in?
@@ -35,6 +35,6 @@
               = msg
           = yield
       %footer.buffer-top
-        ©
-        =link_to 'mechnicov', 'https://mechnicov.github.io/cv/'
+        &copy;
+        =link_to t('app.author.nick'), t('app.author.cv')
         2019

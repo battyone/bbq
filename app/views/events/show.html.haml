@@ -6,8 +6,8 @@
       .event-info-inner.row
         .col-md-6
           .event-description
-            %h1= @event.title
-            %h3= @event.datetime
+            %h2= @event.title
+            %h3= l @event.datetime, format: :long
             %h3
               %small= link_to @event.address,                      |
                   "https://yandex.ru/maps/?text=#{@event.address}" |

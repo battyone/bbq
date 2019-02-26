@@ -10,8 +10,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = 'User was successfully updated.'
-      redirect_to @user
+      redirect_to @user, notice: I18n.t('controllers.users.updated')
     else
       render :edit
     end

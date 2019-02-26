@@ -9,5 +9,5 @@
             = link_to event.title, event_path(event)
           %h3
             %small
-              = event.datetime
+              = l event.datetime, format: :long
           .buffer-both= event.address
