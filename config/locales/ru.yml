@@ -24,7 +24,7 @@ ru:
         one: '%{count} ошибка'
         few: '%{count} ошибки'
         many: '%{count} ошибок'
-        other: ошибки
+        other: '%{count} ошибки'
   controllers:
     events:
       created: Вы создали новое мероприятие
