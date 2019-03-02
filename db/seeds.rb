@@ -14,3 +14,7 @@ end
   User.first.events.create!(title: title, description: description,
                             address: address, datetime: datetime)
 end
+
+ev = Event.find 2
+ev.comments.create!(body: Faker::Lorem.sentence, user_name: Faker::Name.name)
+ev.comments.create!(body: Faker::Lorem.sentence, user_name: Faker::Name.name)
