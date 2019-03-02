@@ -32,6 +32,10 @@ ru:
       destroyed: Вы удалили мероприятие
     users:
       updated: Вы обновили свой профиль
+    comments:
+      created: Ваш комментарий добавлен
+      destroyed: Комментарий удалён
+      error: Ошибка с комментарием
   errors:
     messages:
       blank: не может быть пустым
