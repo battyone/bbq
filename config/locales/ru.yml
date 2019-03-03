@@ -8,6 +8,8 @@ ru:
     models:
       user: Пользователь
       event: Событие
+      comment: Комментарий
+      subscription: Подписка
     attributes:
       user:
         email: Адрес электронной почты
@@ -19,6 +21,13 @@ ru:
         address: Место проведения
         datetime: Дата и время
         description: Описание
+      comment:
+        user_name: Имя
+        body: Текст комментария
+      subscription:
+        user: Подписчик
+        user_name: Имя
+        user_email: Адрес электронной почты
     validation:
       error:
         one: '%{count} ошибка'
