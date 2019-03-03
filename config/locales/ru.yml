@@ -34,6 +34,13 @@ ru:
         few: '%{count} ошибки'
         many: '%{count} ошибок'
         other: '%{count} ошибки'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              not_available:
+                принадлежит зарегистрированному пользователю
   controllers:
     events:
       created: Вы создали новое мероприятие
