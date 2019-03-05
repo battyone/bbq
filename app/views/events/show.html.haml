@@ -32,10 +32,16 @@
         %div
           %p
             = render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription)
-      .event-subscriptions
-        - if current_user.subscriptions.pluck(:event_id).include?(@event.id)
-          %h4 Я пойду!
-        - elsif current_user != @event.user
+      - unless current_user == @event.user
+        .event-subscription-form
           %h4 Я пойду:
           %div
+          - unless current_user
             = render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build }
+          - else
+            - if current_user.subscriptions.pluck(:event_id).include?(@event.id)
+              - subscription = current_user.subscriptions.find_by(event_id: @event.id)
+              = link_to 'Отписаться', event_subscription_path(subscription.event, subscription), |
+                  method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-danger' |
+            - else
+              = render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build }
