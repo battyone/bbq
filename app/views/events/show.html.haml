@@ -19,6 +19,11 @@
                   data: { confirm: t('are_you_sure') }, class: 'btn btn-danger' |
   .row
     .col-md-8
+      .event-photos
+        .event-photos-gallery
+          = render partial: 'photos/photo', collection: @event.photos.except(@new_photo)
+        .event-photo-form
+          = render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build }
       .event-comments.buffer-top
         = render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build }
         .buffer-both
