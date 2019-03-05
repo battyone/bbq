@@ -13,6 +13,8 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
+gem 'carrierwave', '~> 1.0'
+gem 'rmagick'
 
 group :development, :test do
   gem 'byebug'

@@ -16,6 +16,7 @@ ru:
         name: Имя
         password: Пароль
         password_confirmation: Подтверждение пароля
+        avatar: Аватар
       event:
         title: Название
         address: Место проведения
@@ -73,6 +74,8 @@ ru:
         few: недостаточной длины (не может быть меньше %{count} символов)
         many: недостаточной длины (не может быть меньше %{count} символов)
         other: недостаточной длины (не может быть меньше %{count} символа)
+      content_type_whitelist_error: не является изображением
+      rmagick_processing_error: не может бытьобра обработан
   date:
     abbr_day_names:
     - Вс
