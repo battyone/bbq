@@ -32,8 +32,10 @@
         %div
           %p
             = render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription)
-      - unless current_user == @event. user
-        .event-subscription-form
+      .event-subscriptions
+        - if current_user.subscriptions.pluck(:event_id).include?(@event.id)
+          %h4 Я пойду!
+        - elsif current_user != @event.user
           %h4 Я пойду:
           %div
             = render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build }

@@ -7,22 +7,25 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      redirect_to @event, notice: I18n.t('controllers.comments.created')
+      flash[:notice] = I18n.t('controllers.comments.created')
+      redirect_to @event
     else
-      render 'events/show', alert: I18n.t('controllers.comments.error')
+      flash.now[:alert] = I18n.t('controllers.comments.error')
+      render 'events/show'
     end
   end
 
   def destroy
-    message = {notice: I18n.t('controllers.comments.destroyed')}
+    type, message = :notice, I18n.t('controllers.comments.destroyed')
 
     if current_user_can_edit?(@comment)
       @comment.destroy!
     else
-      message = {alert: I18n.t('controllers.comments.error')}
+      type, message = :alert, I18n.t('controllers.comments.error')
     end
 
-    redirect_to @event, message
+    flash[type] = message
+    redirect_to @event
   end
 
   private

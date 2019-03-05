@@ -22,7 +22,8 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to @event, notice: I18n.t('controllers.events.created')
+      flash[:notice] = I18n.t('controllers.events.created')
+      redirect_to @event
     else
       render :new
     end
@@ -30,7 +31,8 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to @event, notice: I18n.t('controllers.events.updated')
+      flash[:notice] = I18n.t('controllers.events.updated')
+      redirect_to @event
     else
       render :edit
     end
@@ -38,7 +40,8 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
+    flash[:notice] = I18n.t('controllers.events.destroyed')
+    redirect_to events_url
   end
 
   private

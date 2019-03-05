@@ -39,8 +39,7 @@ ru:
         subscription:
           attributes:
             user_email:
-              not_available:
-                принадлежит зарегистрированному пользователю
+              not_available: принадлежит зарегистрированному пользователю
   controllers:
     events:
       created: Вы создали новое мероприятие
@@ -56,6 +55,7 @@ ru:
       created: Вы подписаны на это событие
       destroyed: Участник отписан
       error: Подписка/отписка не сработала
+      owner_subscribed_error: Вы являетесь организатором этого события
   errors:
     messages:
       blank: не может быть пустым

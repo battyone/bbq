@@ -7,24 +7,28 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if current_user == @event.user
-      redirect_to @event, alert: I18n.t('controllers.subscriptions.error')
+      flash.now[:alert] = I18n.t('controllers.subscriptions.owner_subscribed_error')
+      render 'events/show'
     elsif @new_subscription.save
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
+      flash[:notice] = I18n.t('controllers.subscriptions.created')
+      redirect_to @event
     else
-      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+      flash.now[:alert] = I18n.t('controllers.subscriptions.error')
+      render 'events/show'
     end
   end
 
   def destroy
-    message = {notice: I18n.t('controllers.subscriptions.destroyed')}
+    type, message = :notice, I18n.t('controllers.subscriptions.destroyed')
 
     if current_user_can_edit?(@subscription)
       @subscription.destroy
     else
-      message = {alert: I18n.t('controllers.subscriptions.error')}
+      type, message = :alert, I18n.t('controllers.subscriptions.error')
     end
 
-    redirect_to @event, message
+    flash[type] = message
+    redirect_to @event
   end
 
   private
