@@ -10,7 +10,6 @@ ru:
       event: Событие
       comment: Комментарий
       subscription: Подписка
-      models:
       photo: Фотография
     attributes:
       user:
@@ -83,7 +82,8 @@ ru:
         many: недостаточной длины (не может быть меньше %{count} символов)
         other: недостаточной длины (не может быть меньше %{count} символа)
       content_type_whitelist_error: не является изображением
-      rmagick_processing_error: не может бытьобра обработан
+      rmagick_processing_error: не может быть обработан(а)
+      max_size_error: превышает размер 5 МБ
   date:
     abbr_day_names:
     - Вс

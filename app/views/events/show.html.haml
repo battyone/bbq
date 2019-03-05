@@ -36,7 +36,11 @@
         %h4 Пойдут:
         %div
           %p
-            = render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription)
+            - subsсribers = @event.subscriptions.except(@new_subscription)
+            - if subsсribers.any?
+              = render partial: 'subscriptions/subscription', collection: subsсribers
+            -else
+              Пока никто не записался
       - unless current_user == @event.user
         .event-subscription-form
           %h4 Я пойду:

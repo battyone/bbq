@@ -15,6 +15,7 @@ gem 'devise-i18n'
 gem 'faker'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug'
