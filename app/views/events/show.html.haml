@@ -27,7 +27,7 @@
       .event-comments.buffer-top
         = render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build }
         .buffer-both
-          = render partial: 'comments/comment', collection: @event.comments.except(@new_comment)
+          = render partial: 'comments/comment', collection: @event.comments.except(@new_comment).order(created_at: :desc)
     .col-md-4
       .event-owner
         %h4 Зовёт:
