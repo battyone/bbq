@@ -32,6 +32,7 @@ ru:
         user_email: Адрес электронной почты
       photo:
         photo: Фотография
+        user: Пользователь
     validation:
       error:
         one: '%{count} ошибка'
@@ -44,6 +45,10 @@ ru:
           attributes:
             user_email:
               not_available: принадлежит зарегистрированному пользователю
+        photo:
+          attributes:
+            user:
+              required: необходим
   controllers:
     events:
       created: Вы создали новое мероприятие
@@ -75,6 +80,12 @@ ru:
       title: Новая подписка
       name: Имя
       email: Адрес электронной почты
+      author: Автор
+      event: Событие
+      datetime: Состоится
+      owner: Организатор
+    photo:
+      title: Новая фотография
       author: Автор
       event: Событие
       datetime: Состоится
