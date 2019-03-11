@@ -1,6 +1,9 @@
+- description = "Добавил #{render partial: 'users/user', object: photo.user}"
+- trash = link_to(fa_icon('trash'), event_photo_path(photo.event, photo), |
+            method: :delete, data: { confirm: t('are_you_sure') })        |
+- description += trash if current_user_can_edit?(photo)
 .event-photo.buffer-both
-  = link_to image_tag(photo.photo.thumb.url), photo.photo.url
-  Добавил #{render partial: 'users/user', object: photo.user}
-  - if current_user_can_edit?(photo)
-    = link_to(fa_icon('trash'), event_photo_path(photo.event, photo), |
-        method: :delete, data: { confirm: t('are_you_sure') })        |
+  = link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: {          |
+      toggle: 'lightbox', gallery: "event#{photo.event.id}", title: description |
+    }                                                                           |
+  = description.html_safe
