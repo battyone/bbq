@@ -17,6 +17,8 @@
                 = link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary'
                 = link_to 'Удалить', event_path(@event), method: :delete,       |
                   data: { confirm: t('are_you_sure') }, class: 'btn btn-danger' |
+        .col-md-6
+          #map.event-map(data-address="#{@event.address}")
   .row
     .col-md-8
       .event-photos
