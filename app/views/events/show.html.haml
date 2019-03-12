@@ -23,9 +23,10 @@
     .col-md-8
       .event-photos
         .event-photos-gallery
-          = render partial: 'photos/photo', collection: @event.photos.except(@new_photo)
+          .owl-carousel{data: {count: @event.photos.except(@new_photo).count}}
+            = render partial: 'photos/photo', collection: @event.photos.except(@new_photo)
         - if current_user
-          .event-photo-form
+          .event-photo-form.buffer-top
             = render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build }
       .event-comments.buffer-top
         = render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build }
