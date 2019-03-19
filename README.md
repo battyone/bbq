@@ -1,24 +1,57 @@
-# README
+## b-b-q
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Description
 
-Things you may want to cover:
+Event management app in which you can create events, subscribe to them, comment on them, attach photos, restrict access to them.
 
-* Ruby version
+Carousel and viewer are organized for photogallery. Subscribers receive letters using mailer.
 
-* System dependencies
+Event places are displayed on the built-in Yandex.maps.
 
-* Configuration
+Realized in Ruby on Rails 5. Language: Russian.
 
-* Database creation
+### Launching
 
-* Database initialization
+1. Download or clone repo. Use bundler
 
-* How to run the test suite
+```console
+$ bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+NB: If you want at the same time create the database, load the schema and initialize it with the seed data run
 
-* Deployment instructions
+```console
+$ rails db:setup
+```
 
-* ...
+Skip Items 2-4 in this case.
+
+2. Create database
+
+```console
+$ rails db:create
+```
+
+3. Run database migrations
+
+```console
+$ rails db:migrate
+```
+
+4. If you want to populate your database with seed data run
+
+```console
+$ rails db:seed
+```
+
+### License
+
+MIT – see `LICENSE`
+
+### Contacts
+
+Email me at
+
+```rb
+'dcdl-snotynu?fl`hk-bnl'.each_char.map(&:succ).join
+```
