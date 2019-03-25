@@ -9,7 +9,7 @@
   %strong= link_to @email, "mailto:#{@email}"
 %hr/
 = t '.event'
-%h3= @event.title
+%h3= link_to @event.title, @event
 = t '.author'
 %h4= l @event.datetime
 = t '.owner'
