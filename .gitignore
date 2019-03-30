@@ -32,3 +32,6 @@
 
 public/uploads
 /config/initializers/secrets.rb
+config/database.yml
+config/secrets.yml
+.env
