@@ -17,9 +17,13 @@ gem 'faker'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 gem 'fog-aws'
+gem 'pundit', '2.0.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -29,4 +33,9 @@ group :development do
   gem 'capistrano-passenger', '~> 0.2'
   gem 'capistrano-rbenv', '~> 2.1'
   gem 'capistrano-bundler', '~> 1.2'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'launchy'
 end

@@ -173,3 +173,5 @@ ru:
       short: "%d %b, %H:%M"
     pm: вечера
   are_you_sure: Вы уверены?
+  pundit:
+    not_authorized: Недостаточно прав для данного действия
