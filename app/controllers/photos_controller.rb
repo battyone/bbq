@@ -6,6 +6,11 @@ class PhotosController < ApplicationController
     @new_photo = @event.photos.build(photo_params)
     @new_photo.user = current_user
 
+    if attempt_to_access_to_private_event?(@event)
+      flash[:alert] = I18n.t('pundit.not_authorized')
+      return redirect_to @event
+    end
+
     if @new_photo.save
       notify_subscribers(@event, @new_photo)
       flash[:notice] = I18n.t('controllers.photos.created')

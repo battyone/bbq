@@ -6,6 +6,11 @@ class CommentsController < ApplicationController
     @new_comment = @event.comments.build(comment_params)
     @new_comment.user = current_user
 
+    if attempt_to_access_to_private_event?(@event)
+      flash[:alert] = I18n.t('pundit.not_authorized')
+      return redirect_to @event
+    end
+
     if @new_comment.save
       notify_subscribers(@event, @new_comment)
       flash[:notice] = I18n.t('controllers.comments.created')

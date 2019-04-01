@@ -58,10 +58,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  # def set_current_user_event
-  #   @event = current_user.events.find(params[:id])
-  # end
-
   def password_guard!
     return true if @event.pincode.blank?
     return true if signed_in? && current_user == @event.user

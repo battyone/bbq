@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     )
   end
 
+  def attempt_to_access_to_private_event?(event)
+    event.pincode.present? && !event.pincode_valid?(cookies.permanent["events_#{event.id}_pincode"]) && current_user != event.user
+  end
+
   protected
 
   def configure_permitted_parameters

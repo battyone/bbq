@@ -6,6 +6,11 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
+    if attempt_to_access_to_private_event?(@event)
+      flash[:alert] = I18n.t('pundit.not_authorized')
+      return redirect_to @event
+    end
+
     if current_user == @event.user
       flash.now[:alert] = I18n.t('controllers.subscriptions.owner_subscribed_error')
       render 'events/show'
