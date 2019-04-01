@@ -28,11 +28,11 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'capistrano', '~> 3.8.0'
-  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano', '~> 3.10.0'
+  gem 'capistrano-rails', '~> 1.3.0'
   gem 'capistrano-passenger', '~> 0.2'
   gem 'capistrano-rbenv', '~> 2.1'
-  gem 'capistrano-bundler', '~> 1.2'
+  gem 'capistrano-bundler', '~> 1.4.0'
 end
 
 group :test do
