@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   after_action :verify_authorized, only: [:destroy, :edit, :update]
 
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   def show
