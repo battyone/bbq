@@ -26,10 +26,19 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+  def pundit_user
+    UserContext.new(current_user, cookies)
+  end
+
   private
 
   def user_not_authorized
-    flash[:alert] = t('pundit.not_authorized')
-    redirect_to(request.referrer || root_path)
+    if !policy(@event).show?
+      flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
+      render 'events/password_form'
+    else
+      flash[:alert] = t('pundit.not_authorized')
+      redirect_to(request.referrer || root_path)
+    end
   end
 end
