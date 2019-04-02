@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
       flash.now[:alert] = I18n.t('controllers.subscriptions.owner_subscribed_error')
       render 'events/show'
     elsif @new_subscription.save
-      EventMailer.subscription(@event, @new_subscription).deliver_now
+      EventMailer.subscription(@event, @new_subscription).deliver_later
       flash[:notice] = I18n.t('controllers.subscriptions.created')
       redirect_to @event
     else

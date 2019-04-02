@@ -18,6 +18,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 gem 'fog-aws'
 gem 'pundit', '2.0.0'
+gem 'resque', '~> 1.27.4'
 
 group :development, :test do
   gem 'byebug'
@@ -28,11 +29,12 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'capistrano', '~> 3.10.0'
+  gem 'capistrano', '~> 3.11.0'
   gem 'capistrano-rails', '~> 1.3.0'
   gem 'capistrano-passenger', '~> 0.2'
   gem 'capistrano-rbenv', '~> 2.1'
   gem 'capistrano-bundler', '~> 1.4.0'
+  gem 'capistrano-resque', '~> 0.2.3', require: false
 end
 
 group :test do
