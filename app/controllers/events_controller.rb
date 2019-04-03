@@ -67,4 +67,13 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
   end
+
+  def user_not_authorized
+    unless policy(@event).show?
+      flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
+      render :password_form
+    else
+      super
+    end
+  end
 end

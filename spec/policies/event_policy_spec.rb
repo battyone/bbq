@@ -6,12 +6,13 @@ RSpec.describe EventPolicy do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
 
-  let(:user_context) { UserContext.new(user, nil) }
-  let(:other_user_context) { UserContext.new(other_user, nil) }
-  let(:not_user_context) { UserContext.new(nil, '1234') }
-
   let(:event) { FactoryBot.create(:event, user: user) }
   let(:event_with_pin) { FactoryBot.create(:event, user: user, pincode: '1234') }
+
+  let(:user_context) { UserContext.new(user, nil) }
+  let(:other_user_context) { UserContext.new(other_user, { "events_#{event_with_pin.id}_pincode" => '1111' }) }
+  let(:not_user_context) { UserContext.new(nil, { "events_#{event_with_pin.id}_pincode" => '1234' }) }
+
 
   context 'User try to edit, update or destroy event' do
     context 'when user is owner' do
@@ -48,8 +49,6 @@ RSpec.describe EventPolicy do
       end
 
       context 'and user has valid cookies' do
-        before { allow(event_with_pin).to receive(:pincode_valid?).with('1234') }
-
         permissions :show? do
           it { is_expected.to permit(not_user_context, event_with_pin) }
         end

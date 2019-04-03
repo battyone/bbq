@@ -24,7 +24,7 @@ class EventPolicy < ApplicationPolicy
   def user_can_look?(event)
     event.pincode.blank? ||
     (user.present? && (event.try(:user) == user)) ||
-    event.pincode_valid?(cookies.permanent["events_#{event.id}_pincode"])
+    event.pincode_valid?(cookies["events_#{event.id}_pincode"])
   end
 
   class Scope < Scope
