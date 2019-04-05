@@ -58,15 +58,7 @@ class EventsController < ApplicationController
     redirect_to events_url
   end
 
-  private
-
-  def set_event
-    @event = Event.find(params[:id])
-  end
-
-  def event_params
-    params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
-  end
+  protected
 
   def user_not_authorized
     unless policy(@event).show?
@@ -75,5 +67,15 @@ class EventsController < ApplicationController
     else
       super
     end
+  end
+
+  private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
   end
 end

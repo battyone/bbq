@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     event.pincode.present? && !event.pincode_valid?(cookies.permanent["events_#{event.id}_pincode"]) && current_user != event.user
   end
 
+  def pundit_user
+    UserContext.new(current_user, cookies)
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -25,12 +29,6 @@ class ApplicationController < ActionController::Base
                                                               :current_password])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
-
-  def pundit_user
-    UserContext.new(current_user, cookies)
-  end
-
-  private
 
   def user_not_authorized
     flash[:alert] = t('pundit.not_authorized')
