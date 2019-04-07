@@ -6,13 +6,25 @@ Event management app in which you can create events, subscribe to them, comment 
 
 Carousel and viewer are organized for photogallery. Subscribers receive letters using mailer.
 
+Facebook authentification is implemented.
+
 Event places are displayed on the built-in Yandex.maps.
 
 Realized in Ruby on Rails 5. Language: Russian.
 
 ### Launching
 
-1. Download or clone repo. Use bundler
+1. Download or clone repo.
+
+2. Use your own credentials as in examples
+
+```
+$ cp config/database.yml.example config/database.yml
+$ cp config/secrets.yml.example config/secrets.yml
+$ cp .env.example .env
+```
+
+2. Use bundler
 
 ```console
 $ bundle install

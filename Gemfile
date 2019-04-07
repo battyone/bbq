@@ -31,6 +31,7 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'letter_opener'
   gem 'capistrano', '~> 3.11.0'
   gem 'capistrano-rails', '~> 1.3.0'
   gem 'capistrano-passenger', '~> 0.2'
