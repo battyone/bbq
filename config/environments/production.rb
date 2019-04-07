@@ -67,7 +67,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'b-b-q.site' }
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'b-b-q.site' }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp

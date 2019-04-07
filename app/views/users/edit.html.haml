@@ -3,4 +3,5 @@
   .col-md-6.buffer-top
     = render 'form'
     .buffer-both
-      = link_to 'Регистрационные данные', edit_user_registration_path
+      - unless current_user.provider?
+        = link_to 'Регистрационные данные', edit_user_registration_path
