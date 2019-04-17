@@ -36,6 +36,7 @@ class User < ApplicationRecord
       user.name = access_token.info.name
       user.email = email
       user.password = Devise.friendly_token.first(16)
+      user.remote_avatar_url = "#{access_token.info.image}?type=large"
     end
   end
 end
