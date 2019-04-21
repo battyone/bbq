@@ -21,6 +21,7 @@ gem 'pundit', '2.0.0'
 gem 'resque', '~> 1.27.4'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 group :development, :test do
   gem 'byebug'

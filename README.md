@@ -6,7 +6,7 @@ Event management app in which you can create events, subscribe to them, comment 
 
 Carousel and viewer are organized for photogallery. Subscribers receive letters using mailer.
 
-Facebook authentification is implemented.
+VK and Facebook authentification is implemented.
 
 Event places are displayed on the built-in Yandex.maps.
 
